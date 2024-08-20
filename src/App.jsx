@@ -1,25 +1,26 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { supabase } from "./createClient";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Home from "./Pages/Home";
+import Location from "./Pages/Location";
+import Errorpage from "./Pages/Errorpage.jsx";
 
 function App() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    getPosts();
-  }, []);
-
-  async function getPosts() {
-    const { data } = await supabase.from("posts").select();
-    setPosts(data);
-  }
 
   return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post.text}>{post.text}</li>
-      ))}
-    </ul>
+
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/error/404" element={ <Errorpage></Errorpage> } />
+        <Route path="*" element={<Navigate to="/error/404" />} />
+        <Route path="/location/:location" element={< Location />} />
+      </Routes>
+    </BrowserRouter>
+  </>
+
   );
 }
 
