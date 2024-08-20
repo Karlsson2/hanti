@@ -1,41 +1,86 @@
 
-import mapboxgl from "mapbox-gl";
-import { useEffect, useRef, useState } from "react";
-import "../App.css";
+import * as React from "react";
+import Map, { Marker, Popup } from "react-map-gl";
+import pin from "../assets/pin.png";
+import { Link } from "react-router-dom";
+
+
 function Home() {
-  // Set the Mapbox access token
-  mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
+  const [selectedLocation, setSelectedLocation] = React.useState(null);
 
-  // Create refs for the map container and the map instance
-  const mapContainer = useRef(null);
-  const map = useRef(null);
-
-  // State for map's center and zoom level
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(9);
-
-  useEffect(() => {
-    // Initialize map only once
-    if (map.current) return;
-
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current, // Reference to the map container
-      style: "mapbox://styles/mapbox/streets-v12", // Map style
-      center: [lng, lat], // Map center (longitude, latitude)
-      zoom: zoom, // Initial zoom level
-    });
-
-    // Cleanup function to remove the map when the component unmounts
-    return () => {
-      if (map.current) map.current.remove();
-    };
-  }, []); // Empty dependency array ensures this effect runs only once
+  const handleMarkerClick = (longitude, latitude, title) => {
+    console.log({ longitude, latitude, title });
+    setSelectedLocation({ longitude, latitude, title });
+  };
 
   return (
-    <div className="App">
-      <div ref={mapContainer} className="map-container" />
-    </div>
+    <Map
+      mapboxAccessToken={import.meta.env.VITE_MAPBOX_KEY}
+      initialViewState={{
+        longitude: 11.939,
+        latitude: 57.70594,
+        zoom: 16,
+      }}
+      style={{ width: "100%", height: "100vh" }}
+      mapStyle="mapbox://styles/fannykarlsson/cm0250q19009u01phh6a1gchj"
+    >
+      {/* First Marker */}
+      <Marker
+        longitude={11.939}
+        latitude={57.70594}
+        anchor="bottom"
+        onClick={() => handleMarkerClick(11.939, 57.70594, "test")}
+      >
+        <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
+      </Marker>
+
+      {/* Second Marker */}
+      <Marker
+        longitude={11.934}
+        latitude={57.70574}
+        anchor="bottom"
+        onClick={() => handleMarkerClick(11.934, 57.70574, "statyn")}
+      >
+        <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
+      </Marker>
+
+      {/* Third Marker */}
+      <Marker
+        longitude={11.936}
+        latitude={57.70584}
+        anchor="bottom"
+        onClick={() => handleMarkerClick(11.936, 57.70584, "piren")}
+      >
+        <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
+      </Marker>
+
+      {/* Fourth Marker */}
+      <Marker
+        longitude={11.935}
+        latitude={57.70594}
+        anchor="bottom"
+        onClick={() => handleMarkerClick(11.935, 57.70594, "glantan")}
+      >
+        <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
+      </Marker>
+
+      {/* Conditionally render the popup based on selectedLocation */}
+      {selectedLocation && (
+        <Popup
+          longitude={selectedLocation.longitude}
+          latitude={selectedLocation.latitude}
+          anchor="top"
+          onClose={() => setSelectedLocation(null)}
+          closeOnClick={false} // Prevents popup from closing when clicking on the map
+        >
+          <div>
+            <Link to={`/Location/${selectedLocation.title}`}>
+              {selectedLocation.title}
+            </Link>
+          </div>
+        </Popup>
+      )}
+    </Map>
   );
 }
 
