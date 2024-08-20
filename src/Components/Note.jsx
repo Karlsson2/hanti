@@ -1,7 +1,14 @@
-function Note() {
+function Note({title, text, author }) {
+
+    
+    
     return(
-        <div>
-            
-        </div>
+        <>
+        <p>{title}</p>
+        <p>{text}</p>
+        <p>{author}</p>
+        </>
     )
 }
+
+export default Note

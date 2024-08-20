@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { Navigate } from "react-router-dom";
 import AddNote from "../Components/addNote";
-import ViewNotes from "../Components/ViewNotes";
+import ViewNotes from "../Components/ViewNotes/ViewNotes.jsx";
 
 function Location() {
     const { location } = useParams()
