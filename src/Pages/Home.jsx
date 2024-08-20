@@ -1,7 +1,9 @@
+
 import * as React from "react";
 import Map, { Marker, Popup } from "react-map-gl";
 import pin from "../assets/pin.png";
 import { Link } from "react-router-dom";
+
 
 function Home() {
   const [selectedLocation, setSelectedLocation] = React.useState(null);
@@ -83,3 +85,4 @@ function Home() {
 }
 
 export default Home;
+
