@@ -33,6 +33,39 @@
   right: 0;
 }
 
+.addNoteContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  transform: rotate(-5deg);
+  min-width: 50%;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  height: fit-content;
+  cursor: pointer;
+}
+.noteTitle {
+  font-family: "Passion One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px;
+  color: #e171c9;
+}
+.noteSubText {
+  font-family: "Noto Music", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+.noteUser {
+  font-family: "Noto Music", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  text-align: right;
+}
 .popupNote {
   box-shadow: unset !important;
   transform: rotate(0deg) !important;
