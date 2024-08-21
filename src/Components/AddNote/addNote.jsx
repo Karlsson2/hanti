@@ -93,7 +93,9 @@ function AddNote(props) {
           </option>
         ))}
       </select>
-      <button type="submit">Add note</button>
+      <button className={styles.submitButton} type="submit">
+        Add note
+      </button>
     </form>
   );
 }

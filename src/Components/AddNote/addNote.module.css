@@ -48,8 +48,11 @@ textarea {
   resize: vertical;
   min-height: 100px;
 }
-
 button {
+  color: #707070;
+}
+
+.submitButton {
   padding: 10px 20px;
   background-color: hsl(346, 70%, 54%);
   color: white;
