@@ -33,11 +33,13 @@ function Header({ location }) {
             </div>
             {isInfoVisible && (
             <div className={styles.infoDiv}>
-                <h2 className={styles.infoDivTitle}>About This Website</h2>
+                <h2 className={styles.infoDivTitle}>Hur går det till?</h2> <br />
                 <p className={styles.p}>
-                    This website provides information about bla bla bla
+                    Klicka på en post-it för att ta del av andras <span className={styles.fatPopupTypo}>upplevelser här på Lindholmen.</span> <br /><br />
+                    <span className={styles.fatPopupTypo}>Du kan själv dela</span> dina upplevelser genom att trycka in dig på "skriv här". <br /><br />
+                    <span className={styles.sjalvklart}>Självklart kan man vara anonym.</span>
                 </p>
-                <button onClick={toggleInfoDiv}>Close</button>
+                <button onClick={toggleInfoDiv}>Stäng ner</button>
             </div>
             )}
         </div>

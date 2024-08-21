@@ -1,9 +1,10 @@
 import * as React from "react";
 import Map, { Marker, Popup } from "react-map-gl";
-import pin from "../../assets/purplepin.png";
+import pin from "../../assets/pin.svg";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import infoButton from "../../assets/infoButton.png";
+import geoPin from "../../assets/geoPin.svg";
 
 function Home() {
   const [selectedLocation, setSelectedLocation] = React.useState(null);
@@ -24,13 +25,17 @@ function Home() {
         <img className={styles.infoButtonImage} src={infoButton} alt="Info" />
       </button>
       <h1 className={styles.headerText}>POST-IT</h1>
+        <h2 className={styles.headerLindholmen}>Lindholmen</h2>
 
       {/* Conditionally render the Info Div */}
       {isInfoVisible && (
         <div className={styles.infoDiv}>
-          <h2 className={styles.infoDivTitle}>About This Website</h2>
-          <p className={styles.p}>
-            This website provides information about bla bla bla
+          <h2 className={styles.infoDivTitle}>Hur Går det till?</h2><br />
+          <p className={styles.popupTypo}>
+          Vad är det som kännetecknar historia om inte människorna som skapar den? Ta del av upplevelser och dela dina egna, här på Lindholmen.<br /><br />
+          <span className={styles.fatPopupTypo}>Scanna någon utav QR-koderna och dela din tanke.</span><br /><br />
+          <span className={styles.popupTypo}>QR koderna hittar du utplacerade på kartan.</span><br /><br />
+          <img src={geoPin} alt="" />
           </p>
           <button onClick={toggleInfoDiv}>Close</button>
         </div>
@@ -48,41 +53,37 @@ function Home() {
       >
         {/* Your Markers */}
         <Marker
-          longitude={11.939}
-          latitude={57.70594}
+          longitude={11.931182}
+          latitude={57.702886}
           anchor="bottom"
-
-          onClick={() => handleMarkerClick(11.939, 57.70594, "bädden")}
-
+          onClick={() => handleMarkerClick(11.931182, 57.702886, "bädden")}
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
 
         <Marker
-          longitude={11.934}
-          latitude={57.70574}
+          longitude={11.9362}
+          latitude={57.705052}
           anchor="bottom"
-          onClick={() => handleMarkerClick(11.934, 57.70574, "fontänen")}
+          onClick={() => handleMarkerClick(11.9362, 57.705052, "fontänen")}
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
 
         <Marker
-          longitude={11.936}
-          latitude={57.70584}
+          longitude={11.9398}
+          latitude={57.7055}
           anchor="bottom"
-
-          onClick={() => handleMarkerClick(11.936, 57.70584, "lindholmspiren")}
-
+          onClick={() => handleMarkerClick(11.9398, 57.7055, "lindholmspiren")}
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
 
         <Marker
-          longitude={11.935}
-          latitude={57.70594}
+          longitude={11.9373}
+          latitude={57.70755}
           anchor="bottom"
-          onClick={() => handleMarkerClick(11.935, 57.70594, "hållplatsen")}
+          onClick={() => handleMarkerClick(11.9373, 57.70755, "hållplatsen")}
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
@@ -94,8 +95,9 @@ function Home() {
             anchor="top"
             onClose={() => setSelectedLocation(null)}
             closeOnClick={false}
+            /* className={styles.mapboxglPopupStyles} funkade ej */ 
           >
-            <div>
+            <div className={styles.markerPopup}>
               <Link to={`/Location/${selectedLocation.title}`}>
                 {selectedLocation.title}
               </Link>
