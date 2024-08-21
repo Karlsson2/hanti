@@ -10,7 +10,7 @@ function AddNote(props) {
   const [color, setColor] = useState(""); // New state for color
   const [age, setAge] = useState(""); // Assuming there's an age field as well
 
-  const locationArray = ["piren", "statyn", "glantan", "test"];
+  const locationArray = ["lindholmspiren", "fontänen", "bädden", "hållplatsen"];
   const currentLocation = locationArray.find((place) =>
     locationName.includes(place)
   );

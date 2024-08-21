@@ -51,7 +51,9 @@ function Home() {
           longitude={11.939}
           latitude={57.70594}
           anchor="bottom"
+
           onClick={() => handleMarkerClick(11.939, 57.70594, "bädden")}
+
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
@@ -69,7 +71,9 @@ function Home() {
           longitude={11.936}
           latitude={57.70584}
           anchor="bottom"
+
           onClick={() => handleMarkerClick(11.936, 57.70584, "lindholmspiren")}
+
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
