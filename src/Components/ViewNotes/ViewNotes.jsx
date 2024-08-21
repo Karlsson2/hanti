@@ -2,6 +2,7 @@ import { supabase } from "../../createClient.js";
 import { useEffect, useState } from "react";
 import Note from "../Note.jsx";
 import styles from "./ViewNotes.module.css";
+import Header from "../Header/Header.jsx";
 
 function ViewNotes(props) {
 
@@ -28,6 +29,7 @@ function ViewNotes(props) {
 
     return (
         <div>
+          <Header location={props.location} ></Header>
           <ul>
             {posts.map((post) => (
               <li key={post.id} onClick={() => handleNoteClick(post)}>

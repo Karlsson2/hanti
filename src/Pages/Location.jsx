@@ -7,7 +7,7 @@ function Location() {
     const { location } = useParams()
     console.log(location);
 
-    const locationArray = ['piren', 'statyn', 'glantan', 'test'];
+    const locationArray = ['lindholmspiren', 'fontänen', 'bädden', 'hållplatsen'];
     
     const currentLocation = locationArray.find(place => location.includes(place));
     console.log(currentLocation);
