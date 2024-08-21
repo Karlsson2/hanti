@@ -65,13 +65,50 @@
     cursor: pointer;    
 }
 
+.infoButton:hover{
+    background-color: #F561CC;
+}
+
+.popupTypo{
+    color: #FAFAFA;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.fatPopupTypo{
+    color: #FAFAFA;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.sjalvklart{
+    color: #FAFAFA;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
+button:hover{
+    background-color: #2f0949;
+}
+
 .infoDiv {
     position: absolute;
     bottom: -400%;
-    left: 10%;
-    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 345px;
     padding: 40px;
-    background-color: rgba(95, 49, 195, 0.90);
+    background-color: #FF4370;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -97,13 +134,24 @@
     }
     
     .infoDiv button:hover {
-    background-color: #0056b3;
+    background-color: #35043b;
     }
     
     .infoDivTitle{
-        font-family: "Yaldevi", sans-serif;
+        color: #FAFAFA;
+        font-family: "Montserrat";
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
     }
     
     .p{
-        font-family: "Yaldevi", sans-serif;
+        color: #FAFAFA;
+        text-align: center;
+        font-family: "Montserrat";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
