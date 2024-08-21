@@ -1,6 +1,6 @@
 import styles from "./Note.module.css";
 
-function Note({ title, content, author, className = "", color, onClick }) {
+function Note({ title, content, author, className = "", color, age, onClick }) {
   return (
     <div
       className={`${styles.note} ${className}`}
@@ -10,7 +10,9 @@ function Note({ title, content, author, className = "", color, onClick }) {
       <h2 className={styles.noteTitle}>{title}</h2>
       <p className={styles.noteSubText}>{content}</p>
       <p className={styles.noteUser}>
-        <strong>By {author}</strong>
+        <strong>
+          {author}, {age}
+        </strong>
       </p>
     </div>
   );
