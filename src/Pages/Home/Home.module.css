@@ -21,7 +21,7 @@ bottom: 8%;
 left: 10%;
 width: 80%;
 padding: 40px;
-background-color: rgba(238, 255, 42, 0.85);
+background-color: rgba(95, 49, 195, 0.90);
 color: white;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 border-radius: 8px;
@@ -38,7 +38,7 @@ margin-top: 0;
 
 .infoDiv button {
 margin-top: 10px;
-background-color: #737c12;
+background-color: #911be4;
 color: white;
 border: none;
 padding: 10px 15px;
@@ -57,4 +57,55 @@ background-color: #0056b3;
 .p{
     font-family: "Yaldevi", sans-serif;
 }
+
+.headerText {
+    top: 8%;
+    left: 50%;
+    position: absolute;
+    z-index: 999;
+    color: #FFF; /* Text color */
+    font-family: Notable;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transform: translate(-50%, -50%);
+
+    /* Text-shadow to create an outside stroke effect */
+    text-shadow: 
+        -2px -2px 0 #7B3DFF,
+        2px -2px 0 #7B3DFF,
+        -2px 2px 0 #7B3DFF,
+        2px 2px 0 #7B3DFF,
+        -4px -4px 0 #7B3DFF,
+        4px -4px 0 #7B3DFF,
+        -4px 4px 0 #7B3DFF,
+        4px 4px 0 #7B3DFF,
+        -6px -6px 0 #7B3DFF,
+        6px -6px 0 #7B3DFF,
+        -6px 6px 0 #7B3DFF,
+        6px 6px 0 #7B3DFF,
+        -8px -8px 0 #7B3DFF,
+        8px -8px 0 #7B3DFF,
+        -8px 8px 0 #7B3DFF,
+        8px 8px 0 #7B3DFF,
+        -10px -10px 0 #7B3DFF,
+        10px -10px 0 #7B3DFF,
+        -10px 10px 0 #7B3DFF,
+        10px 10px 0 #7B3DFF,
+        -12px -12px 0 #7B3DFF,
+        12px -12px 0 #7B3DFF,
+        -12px 12px 0 #7B3DFF,
+        12px 12px 0 #7B3DFF,
+        -14px -14px 0 #7B3DFF,
+        14px -14px 0 #7B3DFF,
+        -14px 14px 0 #7B3DFF,
+        14px 14px 0 #7B3DFF,
+        -16px -16px 0 #7B3DFF,
+        16px -16px 0 #7B3DFF,
+        -16px 16px 0 #7B3DFF,
+        16px 16px 0 #7B3DFF;
+}
+
+
   
