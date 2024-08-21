@@ -58,6 +58,7 @@ function ViewNotes(props) {
             content={post.content}
             author={post.author}
             color={post.color}
+            age={post.age}
             onClick={() => handleNoteClick(post)}
           />
         ))}
@@ -89,6 +90,7 @@ function ViewNotes(props) {
                 author={selectedNote.author}
                 className={styles.popupNote}
                 color={selectedNote.color}
+                age={selectedNote.age}
               />
             </div>
           </div>
