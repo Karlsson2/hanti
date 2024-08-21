@@ -12,11 +12,6 @@ function Location() {
     const currentLocation = locationArray.find(place => location.includes(place));
     console.log(currentLocation);
 
-  const currentLocation = locationArray.find((place) =>
-    location.includes(place)
-  );
-  console.log(currentLocation);
-
   if (!locationArray.includes(currentLocation)) {
     return <Navigate to={{ pathname: "error/404" }} />;
   }
