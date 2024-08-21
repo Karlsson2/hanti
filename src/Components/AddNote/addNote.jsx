@@ -74,7 +74,7 @@ function AddNote(props) {
       />
       <textarea
         maxlength="500"
-        placeholder="Jag var med om..."
+        placeholder="Jag var med om... nått"
         value={content}
         onChange={handleContentChange}
         className={styles.textInput}
