@@ -1,6 +1,6 @@
 import * as React from "react";
 import Map, { Marker, Popup } from "react-map-gl";
-import pin from "../../assets/pin.png";
+import pin from "../../assets/purplepin.png";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import infoButton from "../../assets/infoButton.png";
@@ -20,10 +20,10 @@ function Home() {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100vh" }}>
-      {/* Info Button */}
       <button className={styles.infoButton} onClick={toggleInfoDiv}>
         <img src={infoButton} alt="Info" />
       </button>
+      <h1 className={styles.headerText}>POST-IT</h1>
 
       {/* Conditionally render the Info Div */}
       {isInfoVisible && (
