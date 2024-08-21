@@ -7,12 +7,10 @@ function Location() {
   const { location } = useParams();
   console.log(location);
 
-  const locationArray = ["piren", "statyn", "glantan", "test"];
-
-  const currentLocation = locationArray.find((place) =>
-    location.includes(place)
-  );
-  console.log(currentLocation);
+    const locationArray = ['lindholmspiren', 'fontänen', 'bädden', 'hållplatsen'];
+    
+    const currentLocation = locationArray.find(place => location.includes(place));
+    console.log(currentLocation);
 
   if (!locationArray.includes(currentLocation)) {
     return <Navigate to={{ pathname: "error/404" }} />;

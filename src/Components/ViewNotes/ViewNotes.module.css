@@ -7,15 +7,15 @@
   overflow-y: scroll;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
-  height: 100vh;
+  height: calc(100vh - 163px);
   z-index: 4;
   position: absolute;
-  top: 0;
+  top: 153px;
   right: 0;
 }
 .imageContainer {
-  height: 100vh;
-  background-position: 50% 10%;
+  height: 100%;
+  background-position: 76% 60%;
   width: 100%;
   z-index: 2;
   position: absolute;
@@ -23,8 +23,8 @@
   right: 0;
 }
 .overlay {
-  height: 100vh;
-  background: RGBA(78, 78, 78, 1);
+  height: 100%;
+  background: RGBA(78, 78, 78, 0.7);
   opacity: 0.9;
   width: 100%;
   z-index: 3;
