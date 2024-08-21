@@ -1,0 +1,60 @@
+.infoButton {
+position: absolute;
+top: 20px;
+right: 20px; 
+z-index: 10; 
+padding: 10px 15px;
+background-color: transparent;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;    
+}
+  
+.info-button:hover {
+background-color: #0056b3;
+}
+
+.infoDiv {
+position: absolute;
+bottom: 8%;
+left: 10%;
+width: 80%;
+padding: 40px;
+background-color: rgba(238, 255, 42, 0.85);
+color: white;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+z-index: 20;
+justify-content: center;
+align-items: center;
+text-align: center;
+gap: 10px;
+}
+
+.infoDiv h2 {
+margin-top: 0;
+}
+
+.infoDiv button {
+margin-top: 10px;
+background-color: #737c12;
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.infoDiv button:hover {
+background-color: #0056b3;
+}
+
+.infoDivTitle{
+    font-family: "Yaldevi", sans-serif;
+}
+
+.p{
+    font-family: "Yaldevi", sans-serif;
+}
+  
