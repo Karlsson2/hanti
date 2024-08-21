@@ -5,12 +5,10 @@ import styles from "./ViewNotes.module.css";
 import Header from "../Header/Header.jsx";
 import AddNote from "../AddNote/addNote.jsx";
 
-
-
 function ViewNotes(props) {
   const [posts, setPosts] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
-  const [addNote, setAddNote] = useState(null);
+  const [addNote, setAddNote] = useState(false); // default to false
 
   useEffect(() => {
     getPosts();
@@ -35,13 +33,19 @@ function ViewNotes(props) {
   function closeNote() {
     setSelectedNote(null);
   }
+
   function closeAddNote() {
-    setAddNote(null);
+    setAddNote(false);
+  }
+
+  function addNewPost(newPost) {
+    setPosts((prevPosts) => [...prevPosts, newPost]); // Add new post to the list
+    closeAddNote(); // Close the "Add Note" form
   }
 
   return (
     <>
-      <Header location={props.location} ></Header>
+      <Header location={props.location}></Header>
       <div
         className={styles.imageContainer}
         style={{ backgroundImage: `url("/${props.location}.png")` }}
@@ -75,7 +79,10 @@ function ViewNotes(props) {
               >
                 X
               </button>
-              <AddNote location={props.location} />
+              <AddNote
+                location={props.location}
+                addNewPost={addNewPost} // Pass the addNewPost function
+              />
             </div>
           </div>
         )}

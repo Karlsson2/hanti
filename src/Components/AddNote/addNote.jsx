@@ -7,15 +7,15 @@ function AddNote(props) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
-  const [color, setColor] = useState(""); // New state for color
-  const [age, setAge] = useState(""); // Assuming there's an age field as well
+  const [color, setColor] = useState("");
+  const [age, setAge] = useState("");
+  const [wordCount, setWordCount] = useState("");
 
   const locationArray = ["lindholmspiren", "fontänen", "bädden", "hållplatsen"];
   const currentLocation = locationArray.find((place) =>
     locationName.includes(place)
   );
 
-  // Array of colors with hex values
   const colorOptions = [
     { name: "Lila", hex: "#BB51D6" },
     { name: "Grön", hex: "#3CA36B" },
@@ -27,7 +27,7 @@ function AddNote(props) {
   async function createPost(event) {
     event.preventDefault();
 
-    const data = {
+    const newPost = {
       title: title,
       content: content,
       author: author || "Anonymous",
@@ -36,31 +36,19 @@ function AddNote(props) {
       age: age,
     };
 
-    const { error } = await supabase.from("posts").insert([data]);
+    const { data, error } = await supabase
+      .from("posts")
+      .upsert([newPost])
+      .select();
+
+    console.log(data);
+    console.log(error);
 
     if (error) {
       console.error("Error creating post:", error);
+    } else {
+      props.addNewPost(data[0]);
     }
-  }
-
-  function handleTitleChange(event) {
-    setTitle(event.target.value);
-  }
-
-  function handleContentChange(event) {
-    setContent(event.target.value);
-  }
-
-  function handleAuthorChange(event) {
-    setAuthor(event.target.value);
-  }
-
-  function handleColorChange(event) {
-    setColor(event.target.value);
-  }
-
-  function handleAgeChange(event) {
-    setAge(event.target.value);
   }
 
   return (
@@ -69,32 +57,35 @@ function AddNote(props) {
         type="text"
         placeholder="Din titel här..."
         value={title}
-        onChange={handleTitleChange}
+        onChange={(e) => setTitle(e.target.value)}
         className={styles.titleInput}
       />
+      <div className={styles.solidLine}></div>
       <textarea
-        maxlength="500"
+        maxLength="500"
         placeholder="Jag var med om... nått"
         value={content}
-        onChange={handleContentChange}
+        onChange={(e) => setContent(e.target.value)}
         className={styles.textInput}
       />
+      <div className={styles.wordCount}>/500 tecken</div>
+      <div className={styles.solidLine}></div>
+
       <input
         type="text"
         placeholder="Ålder"
         value={age}
-        onChange={handleAgeChange}
+        onChange={(e) => setAge(e.target.value)}
         className={styles.ageInput}
       />
-
       <input
         type="text"
         placeholder="Skriv ditt namn eller var anonym"
         value={author}
-        onChange={handleAuthorChange}
+        onChange={(e) => setAuthor(e.target.value)}
         className={styles.nameInput}
       />
-      <select value={color} onChange={handleColorChange}>
+      <select value={color} onChange={(e) => setColor(e.target.value)}>
         <option value="">Välj Postit Färg</option>
         {colorOptions.map((colorOption, index) => (
           <option key={index} value={colorOption.hex}>
