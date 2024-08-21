@@ -1,0 +1,58 @@
+.addNoteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.titleInput {
+  font-size: 32px;
+}
+.textInput {
+  font-size: 16px;
+}
+.ageInput,
+.nameInput {
+  font-size: 12px;
+}
+
+.titleInput,
+textarea,
+input[type="text"],
+select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}

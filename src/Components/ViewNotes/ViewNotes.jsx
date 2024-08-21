@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import Note from "../Note/Note.jsx";
 import styles from "./ViewNotes.module.css";
 import Header from "../Header/Header.jsx";
-import AddNote from "../addNote.jsx";
+import AddNote from "../AddNote/addNote.jsx";
+
 
 
 function ViewNotes(props) {
@@ -61,6 +62,7 @@ function ViewNotes(props) {
             content={post.content}
             author={post.author}
             color={post.color}
+            age={post.age}
             onClick={() => handleNoteClick(post)}
           />
         ))}
@@ -92,6 +94,7 @@ function ViewNotes(props) {
                 author={selectedNote.author}
                 className={styles.popupNote}
                 color={selectedNote.color}
+                age={selectedNote.age}
               />
             </div>
           </div>
