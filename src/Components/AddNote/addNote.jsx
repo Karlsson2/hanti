@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { supabase } from "../createClient";
+import { supabase } from "../../createClient";
+import styles from "./addNote.module.css";
 
 function AddNote(props) {
   const locationName = props.location;
@@ -63,42 +64,46 @@ function AddNote(props) {
   }
 
   return (
-    <div>
-      <form onSubmit={createPost}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={handleTitleChange}
-        />
-        <textarea
-          placeholder="Content"
-          value={content}
-          onChange={handleContentChange}
-        />
-        <input
-          type="text"
-          placeholder="Age"
-          value={age}
-          onChange={handleAgeChange}
-        />
-        <select value={color} onChange={handleColorChange}>
-          <option value="">Select a color</option>
-          {colorOptions.map((colorOption, index) => (
-            <option key={index} value={colorOption.hex}>
-              {colorOption.name} - {colorOption.hex}
-            </option>
-          ))}
-        </select>
-        <input
-          type="text"
-          placeholder="Leave this blank if you want to be anonymous"
-          value={author}
-          onChange={handleAuthorChange}
-        />
-        <button type="submit">Add note</button>
-      </form>
-    </div>
+    <form onSubmit={createPost} className={styles.addNoteForm}>
+      <input
+        type="text"
+        placeholder="Din titel här..."
+        value={title}
+        onChange={handleTitleChange}
+        className={styles.titleInput}
+      />
+      <textarea
+        maxlength="500"
+        placeholder="Jag var med om... nått"
+        value={content}
+        onChange={handleContentChange}
+        className={styles.textInput}
+      />
+      <input
+        type="text"
+        placeholder="Ålder"
+        value={age}
+        onChange={handleAgeChange}
+        className={styles.ageInput}
+      />
+
+      <input
+        type="text"
+        placeholder="Skriv ditt namn eller var anonym"
+        value={author}
+        onChange={handleAuthorChange}
+        className={styles.nameInput}
+      />
+      <select value={color} onChange={handleColorChange}>
+        <option value="">Välj Postit Färg</option>
+        {colorOptions.map((colorOption, index) => (
+          <option key={index} value={colorOption.hex}>
+            {colorOption.name} - {colorOption.hex}
+          </option>
+        ))}
+      </select>
+      <button type="submit">Add note</button>
+    </form>
   );
 }
 
