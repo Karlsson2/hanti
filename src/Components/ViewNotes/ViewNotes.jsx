@@ -2,7 +2,10 @@ import { supabase } from "../../createClient.js";
 import { useEffect, useState } from "react";
 import Note from "../Note/Note.jsx";
 import styles from "./ViewNotes.module.css";
+import Header from "../Header/Header.jsx";
 import AddNote from "../AddNote/addNote.jsx";
+
+
 
 function ViewNotes(props) {
   const [posts, setPosts] = useState([]);
@@ -38,6 +41,7 @@ function ViewNotes(props) {
 
   return (
     <>
+      <Header location={props.location} ></Header>
       <div
         className={styles.imageContainer}
         style={{ backgroundImage: `url("/${props.location}.png")` }}

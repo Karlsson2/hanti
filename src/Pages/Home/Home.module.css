@@ -10,10 +10,6 @@ border: none;
 border-radius: 4px;
 cursor: pointer;    
 }
-  
-.info-button:hover {
-background-color: #0056b3;
-}
 
 .infoDiv {
 position: absolute;
@@ -65,7 +61,7 @@ background-color: #0056b3;
     z-index: 999;
     color: #FFF; /* Text color */
     font-family: Notable;
-    font-size: 50px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -88,23 +84,33 @@ background-color: #0056b3;
         -8px -8px 0 #7B3DFF,
         8px -8px 0 #7B3DFF,
         -8px 8px 0 #7B3DFF,
-        8px 8px 0 #7B3DFF,
-        -10px -10px 0 #7B3DFF,
-        10px -10px 0 #7B3DFF,
-        -10px 10px 0 #7B3DFF,
-        10px 10px 0 #7B3DFF,
-        -12px -12px 0 #7B3DFF,
-        12px -12px 0 #7B3DFF,
-        -12px 12px 0 #7B3DFF,
-        12px 12px 0 #7B3DFF,
-        -14px -14px 0 #7B3DFF,
-        14px -14px 0 #7B3DFF,
-        -14px 14px 0 #7B3DFF,
-        14px 14px 0 #7B3DFF,
-        -16px -16px 0 #7B3DFF,
-        16px -16px 0 #7B3DFF,
-        -16px 16px 0 #7B3DFF,
-        16px 16px 0 #7B3DFF;
+        8px 8px 0 #7B3DFF;
+}
+
+@media only screen and (max-width: 435px) {
+
+    .headerText {
+        font-size: 25px;
+        text-shadow: 
+        -2px -2px 0 #7B3DFF,
+        2px -2px 0 #7B3DFF,
+        -2px 2px 0 #7B3DFF,
+        2px 2px 0 #7B3DFF,
+        -4px -4px 0 #7B3DFF,
+        4px -4px 0 #7B3DFF,
+        -4px 4px 0 #7B3DFF,
+        4px 4px 0 #7B3DFF,
+        -6px -6px 0 #7B3DFF,
+        6px -6px 0 #7B3DFF,
+        -6px 6px 0 #7B3DFF,
+        6px 6px 0 #7B3DFF,
+    }
+
+    .infoButtonImage{
+        width: 75%;
+        right: 10%;
+    }
+
 }
 
 
