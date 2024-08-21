@@ -2,7 +2,7 @@ import { supabase } from "../../createClient.js";
 import { useEffect, useState } from "react";
 import Note from "../Note/Note.jsx";
 import styles from "./ViewNotes.module.css";
-import AddNote from "../addNote.jsx";
+import AddNote from "../AddNote/addNote.jsx";
 
 function ViewNotes(props) {
   const [posts, setPosts] = useState([]);
