@@ -51,7 +51,7 @@ function Home() {
           longitude={11.939}
           latitude={57.70594}
           anchor="bottom"
-          onClick={() => handleMarkerClick(11.939, 57.70594, "test")}
+          onClick={() => handleMarkerClick(11.939, 57.70594, "lindholmspiren")}
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
@@ -60,7 +60,7 @@ function Home() {
           longitude={11.934}
           latitude={57.70574}
           anchor="bottom"
-          onClick={() => handleMarkerClick(11.934, 57.70574, "statyn")}
+          onClick={() => handleMarkerClick(11.934, 57.70574, "fontänen")}
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
@@ -69,7 +69,7 @@ function Home() {
           longitude={11.936}
           latitude={57.70584}
           anchor="bottom"
-          onClick={() => handleMarkerClick(11.936, 57.70584, "piren")}
+          onClick={() => handleMarkerClick(11.936, 57.70584, "bädden")}
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
@@ -78,7 +78,7 @@ function Home() {
           longitude={11.935}
           latitude={57.70594}
           anchor="bottom"
-          onClick={() => handleMarkerClick(11.935, 57.70594, "glantan")}
+          onClick={() => handleMarkerClick(11.935, 57.70594, "hållplatsen")}
         >
           <img src={pin} alt="pin" style={{ cursor: "pointer" }} />
         </Marker>
