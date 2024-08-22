@@ -68,7 +68,7 @@ function ViewNotes(props) {
           <Note
             key={post.id}
             title={post.title}
-            content={post.content}
+            content={post.content.length > 20 ? post.content.substring(0, 20) + '...' : post.content}
             author={post.author}
             color={post.color}
             age={post.age}
@@ -102,7 +102,7 @@ function ViewNotes(props) {
               </button>
               <Note
                 title={selectedNote.title}
-                content={selectedNote.content}
+                content={selectedNote.content} // Full brödtext här
                 author={selectedNote.author}
                 className={styles.popupNote}
                 color={selectedNote.color}

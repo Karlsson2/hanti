@@ -20,7 +20,7 @@ function Note({
       <p className={styles.noteSubText}>{content}</p>
       <p className={styles.noteUser}>
         <strong>
-          {author}, {age}
+          {author}, {age + " år"}
         </strong>
       </p>
     </div>
