@@ -82,7 +82,7 @@
   color: #0d0d0d;
 }
 .notePopup {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
