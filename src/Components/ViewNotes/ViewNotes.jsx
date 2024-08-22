@@ -21,7 +21,8 @@ function ViewNotes(props) {
     const { data } = await supabase
       .from("posts")
       .select()
-      .eq("location", props.location);
+      .eq("location", props.location)
+      .order("created_at", { ascending: false });
     setPosts(data);
   }
 
@@ -42,7 +43,7 @@ function ViewNotes(props) {
   }
 
   function addNewPost(newPost) {
-    setPosts((prevPosts) => [...prevPosts, newPost]); // Add new post to the list
+    setPosts((prevPosts) => [newPost, ...prevPosts]); // Prepend the new post to the list
     closeAddNote(); // Close the "Add Note" form
   }
 
@@ -68,7 +69,11 @@ function ViewNotes(props) {
           <Note
             key={post.id}
             title={post.title}
-            content={post.content.length > 20 ? post.content.substring(0, 20) + '...' : post.content}
+            content={
+              post.content.length > 20
+                ? post.content.substring(0, 20) + "..."
+                : post.content
+            }
             author={post.author}
             color={post.color}
             age={post.age}
