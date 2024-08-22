@@ -50,6 +50,43 @@ function ViewNotes(props) {
   return (
     <>
       <Header location={props.location}></Header>
+      {selectedNote && (
+        <div className={styles.notePopup}>
+          <div className={styles.notePopupContent}>
+            <button
+              className={styles.notePopupContentButtonBlack}
+              onClick={closeNote}
+            >
+              X
+            </button>
+            <Note
+              title={selectedNote.title}
+              content={selectedNote.content} // Full brödtext här
+              author={selectedNote.author}
+              className={styles.popupNote}
+              color={selectedNote.color}
+              age={selectedNote.age}
+              popUpTitleClass={styles.popUpTitleClass}
+            />
+          </div>
+        </div>
+      )}
+      {addNote && (
+        <div className={styles.notePopup}>
+          <div className={styles.notePopupContent}>
+            <button
+              className={styles.notePopupContentButton}
+              onClick={closeAddNote}
+            >
+              X
+            </button>
+            <AddNote
+              location={props.location}
+              addNewPost={addNewPost} // Pass the addNewPost function
+            />
+          </div>
+        </div>
+      )}
       <div
         className={styles.imageContainer}
         style={{ backgroundImage: `url("/${props.location}.png")` }}
@@ -80,43 +117,6 @@ function ViewNotes(props) {
             onClick={() => handleNoteClick(post)}
           />
         ))}
-        {addNote && (
-          <div className={styles.notePopup}>
-            <div className={styles.notePopupContent}>
-              <button
-                className={styles.notePopupContentButton}
-                onClick={closeAddNote}
-              >
-                X
-              </button>
-              <AddNote
-                location={props.location}
-                addNewPost={addNewPost} // Pass the addNewPost function
-              />
-            </div>
-          </div>
-        )}
-        {selectedNote && (
-          <div className={styles.notePopup}>
-            <div className={styles.notePopupContent}>
-              <button
-                className={styles.notePopupContentButtonBlack}
-                onClick={closeNote}
-              >
-                X
-              </button>
-              <Note
-                title={selectedNote.title}
-                content={selectedNote.content} // Full brödtext här
-                author={selectedNote.author}
-                className={styles.popupNote}
-                color={selectedNote.color}
-                age={selectedNote.age}
-                popUpTitleClass={styles.popUpTitleClass}
-              />
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
