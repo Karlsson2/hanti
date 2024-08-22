@@ -9,7 +9,7 @@ function AddNote(props) {
   const [author, setAuthor] = useState("");
   const [color, setColor] = useState("");
   const [age, setAge] = useState("");
-  const [wordCount, setWordCount] = useState("");
+  const [wordCount, setWordCount] = useState(0);
 
   const locationArray = ["lindholmspiren", "fontänen", "bädden", "hållplatsen"];
   const currentLocation = locationArray.find((place) =>
@@ -51,6 +51,20 @@ function AddNote(props) {
     }
   }
 
+  const handleContentChange = (e) => {
+    const newContent = e.target.value;
+
+    // Split content by spaces and count words
+    const words = newContent.trim().split(/\s+/);
+    const wordCount = words.filter((word) => word !== "").length; // Filter out empty strings
+
+    // Ensure the word count does not exceed 500
+    if (wordCount <= 500) {
+      setContent(newContent);
+      setWordCount(wordCount);
+    }
+  };
+
   return (
     <form onSubmit={createPost} className={styles.addNoteForm}>
       <input
@@ -63,18 +77,17 @@ function AddNote(props) {
       />
       <div className={styles.solidLine}></div>
       <textarea
-        maxLength="500"
         placeholder="Jag var med om... nått"
         value={content}
-        onChange={(e) => setContent(e.target.value)}
+        onChange={handleContentChange}
         className={styles.textInput}
         required
       />
-      <div className={styles.wordCount}>/500 tecken</div>
+      <div className={styles.wordCount}>{wordCount}/500 ord</div>
       <div className={styles.solidLine}></div>
 
       <input
-        type="number"
+        type="text"
         placeholder="Ålder"
         value={age}
         onChange={(e) => setAge(e.target.value)}
