@@ -12,7 +12,8 @@
 .iconWrapper {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 .headerTextWrapper {
@@ -57,7 +58,6 @@
   top: 20px;
   right: 20px;
   z-index: 10;
-  padding: 10px 15px;
   background-color: transparent;
   color: white;
   border: none;
@@ -66,7 +66,7 @@
 }
 
 .infoButton:hover {
-  background-color: #f561cc;
+  background-color: transparent;
 }
 
 .popupTypo {
@@ -103,7 +103,7 @@ button:hover {
 
 .infoDiv {
   position: absolute;
-  bottom: -400%;
+  bottom: -325%;
   left: 50%;
   transform: translateX(-50%);
   width: 345px;
@@ -124,13 +124,13 @@ button:hover {
 }
 
 .infoDiv button {
-  margin-top: 10px;
-  background-color: #911be4;
+  background-color: #ff4370;
   color: white;
   border: none;
-  padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
+  padding-inline: 0px;
+  padding-block: 0px;
 }
 
 .infoDiv button:hover {
@@ -154,4 +154,10 @@ button:hover {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.infoDivCross{
+  position: absolute;
+  top: 9px;
+  right: 13px;
 }

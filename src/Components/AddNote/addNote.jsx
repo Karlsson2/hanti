@@ -84,7 +84,7 @@ function AddNote(props) {
         className={styles.textInput}
         required
       />
-      <div className={styles.wordCount}>{wordCount}/500 ord</div>
+      <div className={styles.wordCount}>{wordCount}/500 tecken</div>
       <div className={styles.solidLine}></div>
 
       <input

@@ -3,8 +3,10 @@ import Map, { Marker, Popup } from "react-map-gl";
 import pin from "../../assets/pin.svg";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
-import infoButton from "../../assets/infoButton.png";
+import infoButton from "../../assets/Info_icon.svg";
 import geoPin from "../../assets/geoPin.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   const [selectedLocation, setSelectedLocation] = React.useState(null);
@@ -37,7 +39,7 @@ function Home() {
           <span className={styles.popupTypo}>QR koderna hittar du utplacerade på kartan.</span><br /><br />
           <img src={geoPin} alt="" />
           </p>
-          <button onClick={toggleInfoDiv}>Close</button>
+          <button className={styles.infoDivCross} onClick={toggleInfoDiv}><FontAwesomeIcon icon={faXmark} size="2x" /></button>
         </div>
       )}
 
