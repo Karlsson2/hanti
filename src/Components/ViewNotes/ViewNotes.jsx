@@ -95,7 +95,7 @@ function ViewNotes(props) {
           <div className={styles.notePopup}>
             <div className={styles.notePopupContent}>
               <button
-                className={styles.notePopupContentButton}
+                className={styles.notePopupContentButtonBlack}
                 onClick={closeNote}
               >
                 X
@@ -107,6 +107,7 @@ function ViewNotes(props) {
                 className={styles.popupNote}
                 color={selectedNote.color}
                 age={selectedNote.age}
+                popUpTitleClass={styles.popUpTitleClass}
               />
             </div>
           </div>
