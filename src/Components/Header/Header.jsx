@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import viewNoteStyles from "../ViewNotes/ViewNotes.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import rodLogga from "../../assets/logga.svg";
 
 function Header({ location }) {
     const capitalizeFirstLetter = (str) => {
@@ -33,13 +34,13 @@ function Header({ location }) {
                 <Link to={`/`}>
                     <img src={mapIcon} alt="" />
                 </Link>
+                <img className={styles.appName} src={rodLogga} alt="" />
                 <button className={styles.infoButton} onClick={toggleInfoDiv}>
                     <img className={styles.infoIcon} src={infoIcon} alt="Info" />
                 </button>
             </div>
             <div className={styles.headerTextWrapper}>
                 <h1 className={styles.locationStyle}>{capitalizedLocation}</h1>
-                <h1 className={styles.appName}>POST-IT</h1>
             </div>
             {isInfoVisible && (
                 <div className={styles.infoDiv}>

@@ -1,19 +1,19 @@
 .headerWrapperDiv {
   display: flex;
   flex-direction: column;
-  gap: 2px;
   position: absolute;
   z-index: 4;
   width: 100%;
   top: 0;
   right: 0;
+  gap: 25px;
 }
 
 .iconWrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
+  align-items: center;
   padding-top: 20px;
-  padding-left: 20px;
 }
 
 .headerTextWrapper {
@@ -25,44 +25,32 @@
   gap: 5px;
 }
 
+.iconWrapper a{
+  padding-left: 20px;
+}
+
 .locationStyle {
   color: #fff;
   text-align: center;
   font-family: "Audiowide", sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
 .appName {
-  color: #fff;
-  text-align: right;
-  -webkit-text-stroke-width: 0px;
-  -webkit-text-stroke-color: var(--our-pink-color, #f561cc);
-  font-family: Notable;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 400;
-  left: 10%;
-  line-height: normal;
-  transform: translate(50%, -50%);
-
-  /* Text-shadow to create an outside stroke effect */
-  text-shadow: -2px -2px 0 #f561cc, 2px -2px 0 #f561cc, -2px 2px 0 #f561cc,
-    2px 2px 0 #f561cc;
+  width: 118px;
 }
 
 .infoButton {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   z-index: 10;
   background-color: transparent;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  padding-right: 20px;
 }
 
 .infoButton:hover {
