@@ -11,7 +11,7 @@ function Note({ title, content, author, className = "", color, age, onClick }) {
       <p className={styles.noteSubText}>{content}</p>
       <p className={styles.noteUser}>
         <strong>
-          {author}, {age}
+          {author}, {age + " år"}
         </strong>
       </p>
     </div>

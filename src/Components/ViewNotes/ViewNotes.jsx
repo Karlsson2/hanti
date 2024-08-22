@@ -5,8 +5,6 @@ import styles from "./ViewNotes.module.css";
 import Header from "../Header/Header.jsx";
 import AddNote from "../AddNote/addNote.jsx";
 
-
-
 function ViewNotes(props) {
   const [posts, setPosts] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
@@ -35,13 +33,14 @@ function ViewNotes(props) {
   function closeNote() {
     setSelectedNote(null);
   }
+
   function closeAddNote() {
     setAddNote(null);
   }
 
   return (
     <>
-      <Header location={props.location} ></Header>
+      <Header location={props.location}></Header>
       <div
         className={styles.imageContainer}
         style={{ backgroundImage: `url("/${props.location}.png")` }}
@@ -59,7 +58,7 @@ function ViewNotes(props) {
           <Note
             key={post.id}
             title={post.title}
-            content={post.content}
+            content={post.content.length > 20 ? post.content.substring(0, 20) + '...' : post.content}
             author={post.author}
             color={post.color}
             age={post.age}
@@ -90,7 +89,7 @@ function ViewNotes(props) {
               </button>
               <Note
                 title={selectedNote.title}
-                content={selectedNote.content}
+                content={selectedNote.content} // Full brödtext här
                 author={selectedNote.author}
                 className={styles.popupNote}
                 color={selectedNote.color}
