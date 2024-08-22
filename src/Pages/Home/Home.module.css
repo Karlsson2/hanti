@@ -11,22 +11,28 @@ border-radius: 4px;
 cursor: pointer;    
 }
 
-.infoDiv {
-position: absolute;
-bottom: 8%;
-left: 10%;
-width: 80%;
-padding: 40px;
-background-color: rgba(95, 49, 195, 0.90);
-color: white;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-border-radius: 8px;
-z-index: 20;
-justify-content: center;
-align-items: center;
-text-align: center;
-gap: 10px;
+.infoButton:hover {
+background-color: #5a2d38
 }
+
+.infoDiv {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 345px;
+    padding: 40px;
+    background-color: #FF4370;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 20;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  
 
 .infoDiv h2 {
 margin-top: 0;
@@ -34,7 +40,7 @@ margin-top: 0;
 
 .infoDiv button {
 margin-top: 10px;
-background-color: #911be4;
+background-color: #7e3d4c;
 color: white;
 border: none;
 padding: 10px 15px;
@@ -43,15 +49,36 @@ cursor: pointer;
 }
 
 .infoDiv button:hover {
-background-color: #0056b3;
+background-color: #3a101a;
 }
 
 .infoDivTitle{
-    font-family: "Yaldevi", sans-serif;
+    color: #FAFAFA;
+    font-family: "Montserrat";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    
 }
 
 .p{
     font-family: "Yaldevi", sans-serif;
+}
+
+.headerLindholmen{
+    top: 12.5%;
+    left: 53%;
+    position: absolute;
+    z-index: 999;
+    color: #FFF;
+    text-align: center;
+    font-family: Audiowide;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transform: translate(-50%, -50%);
 }
 
 .headerText {
@@ -69,41 +96,100 @@ background-color: #0056b3;
 
     /* Text-shadow to create an outside stroke effect */
     text-shadow: 
-        -2px -2px 0 #7B3DFF,
-        2px -2px 0 #7B3DFF,
-        -2px 2px 0 #7B3DFF,
-        2px 2px 0 #7B3DFF,
-        -4px -4px 0 #7B3DFF,
-        4px -4px 0 #7B3DFF,
-        -4px 4px 0 #7B3DFF,
-        4px 4px 0 #7B3DFF,
-        -6px -6px 0 #7B3DFF,
-        6px -6px 0 #7B3DFF,
-        -6px 6px 0 #7B3DFF,
-        6px 6px 0 #7B3DFF,
-        -8px -8px 0 #7B3DFF,
-        8px -8px 0 #7B3DFF,
-        -8px 8px 0 #7B3DFF,
-        8px 8px 0 #7B3DFF;
+        -2px -2px 0 #FF4370,
+        2px -2px 0 #FF4370,
+        -2px 2px 0 #FF4370,
+        2px 2px 0 #FF4370,
+        -4px -4px 0 #FF4370,
+        4px -4px 0 #FF4370,
+        -4px 4px 0 #FF4370,
+        4px 4px 0 #FF4370,
+        -6px -6px 0 #FF4370,
+        6px -6px 0 #FF4370,
+        -6px 6px 0 #FF4370,
+        6px 6px 0 #FF4370,
+        -8px -8px 0 #FF4370,
+        8px -8px 0 #FF4370,
+        -8px 8px 0 #FF4370,
+        8px 8px 0 #FF4370;
 }
+
+.markerPopup{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color:#FFF;
+    width: 120px;
+    font-size: 16px;
+    height: 30px;
+    }
+
+.markerPopup a{
+    text-decoration: none;
+    font-weight: 800;
+    color: #FF4370;
+}
+
+.markerPopup a:hover{
+    color:#46222a;
+}
+
+.mapboxglPopupStyles{
+    background:#FF4370;
+}
+
+.mapboxgl-popup-tip{
+    background: #FF4370;
+}
+
+.popupTypo{
+    color: #FAFAFA;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.fatPopupTypo{
+    color: #FAFAFA;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.sjalvklart{
+    color: #FAFAFA;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+}
+
 
 @media only screen and (max-width: 435px) {
 
     .headerText {
         font-size: 25px;
         text-shadow: 
-        -2px -2px 0 #7B3DFF,
-        2px -2px 0 #7B3DFF,
-        -2px 2px 0 #7B3DFF,
-        2px 2px 0 #7B3DFF,
-        -4px -4px 0 #7B3DFF,
-        4px -4px 0 #7B3DFF,
-        -4px 4px 0 #7B3DFF,
-        4px 4px 0 #7B3DFF,
-        -6px -6px 0 #7B3DFF,
-        6px -6px 0 #7B3DFF,
-        -6px 6px 0 #7B3DFF,
-        6px 6px 0 #7B3DFF,
+        -2px -2px 0 #FF4370,
+        2px -2px 0 #FF4370,
+        -2px 2px 0 #FF4370,
+        2px 2px 0 #FF4370,
+        -4px -4px 0 #FF4370,
+        4px -4px 0 #FF4370,
+        -4px 4px 0 #FF4370,
+        4px 4px 0 #FF4370,
+        -6px -6px 0 #FF4370,
+        6px -6px 0 #FF4370,
+        -6px 6px 0 #FF4370,
+        6px 6px 0 #FF4370,
     }
 
     .infoButtonImage{
