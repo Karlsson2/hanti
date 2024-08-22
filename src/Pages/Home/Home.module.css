@@ -82,7 +82,7 @@ animation-delay: 0.2s; /* Add a small delay if you want a staggered effect */
 }
 
 .headerLindholmen {
-animation-delay: 0.2s; /* Add a delay for synchronization */
+animation-delay: 0.25s; /* Add a delay for synchronization */
 }
   
 
@@ -91,8 +91,8 @@ animation-delay: 0.2s; /* Add a delay for synchronization */
 }
 
 .headerLindholmen{
-    top: 17.5%;
-    left: 53%;
+    top: 19.5%;
+    left: 58%;
     position: absolute;
     z-index: 999;
     color: #FFF;

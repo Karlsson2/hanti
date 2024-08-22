@@ -89,7 +89,7 @@ function ViewNotes(props) {
       )}
       <div
         className={styles.imageContainer}
-        style={{ backgroundImage: `url("/${props.location}.png")` }}
+        style={{ backgroundImage: `url("/${props.location}.webp")` }}
       ></div>
       <div className={styles.overlay}></div>
       <div className={styles.notesContainer}>
