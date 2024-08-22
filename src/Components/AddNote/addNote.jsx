@@ -59,6 +59,7 @@ function AddNote(props) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         className={styles.titleInput}
+        required
       />
       <div className={styles.solidLine}></div>
       <textarea
@@ -67,16 +68,18 @@ function AddNote(props) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
         className={styles.textInput}
+        required
       />
       <div className={styles.wordCount}>/500 tecken</div>
       <div className={styles.solidLine}></div>
 
       <input
-        type="text"
+        type="number"
         placeholder="Ålder"
         value={age}
         onChange={(e) => setAge(e.target.value)}
         className={styles.ageInput}
+        required
       />
       <input
         type="text"
@@ -85,7 +88,7 @@ function AddNote(props) {
         onChange={(e) => setAuthor(e.target.value)}
         className={styles.nameInput}
       />
-      <select value={color} onChange={(e) => setColor(e.target.value)}>
+      <select value={color} onChange={(e) => setColor(e.target.value)} required>
         <option value="">Välj Postit Färg</option>
         {colorOptions.map((colorOption, index) => (
           <option key={index} value={colorOption.hex}>
