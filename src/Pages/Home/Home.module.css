@@ -1,7 +1,7 @@
 .infoButton {
 position: absolute;
 top: 20px;
-right: 10px; 
+right: 25px; 
 z-index: 10; 
 background-color: transparent;
 color: white;
@@ -30,7 +30,7 @@ background-color: transparent;
     align-items: center;
     text-align: center;
     gap: 10px;
-  }
+}
   
 
 .infoDiv h2 {
@@ -61,12 +61,37 @@ background-color: transparent;
     
 }
 
+@keyframes slideInFromRight {
+0% {
+    transform: translateX(100%);
+    opacity: 0;
+}
+100% {
+    transform: translateX(-50%);
+    opacity: 1;
+}
+}
+
+.headerText,
+.headerLindholmen {
+animation: slideInFromRight 1s ease-out forwards;
+}
+
+.headerText {
+animation-delay: 0.2s; /* Add a small delay if you want a staggered effect */
+}
+
+.headerLindholmen {
+animation-delay: 0.2s; /* Add a delay for synchronization */
+}
+  
+
 .p{
     font-family: "Yaldevi", sans-serif;
 }
 
 .headerLindholmen{
-    top: 12.5%;
+    top: 17.5%;
     left: 53%;
     position: absolute;
     z-index: 999;
@@ -81,7 +106,7 @@ background-color: transparent;
 }
 
 .headerText {
-    top: 8%;
+    top: 13%;
     left: 50%;
     position: absolute;
     z-index: 999;

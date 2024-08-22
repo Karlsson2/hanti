@@ -106,7 +106,7 @@ function AddNote(props) {
         <option value="">Välj Postit Färg</option>
         {colorOptions.map((colorOption, index) => (
           <option key={index} value={colorOption.hex}>
-            {colorOption.name} - {colorOption.hex}
+            {colorOption.name}{/*  - {colorOption.hex} */}
           </option>
         ))}
       </select>
