@@ -19,9 +19,10 @@ function AddNote(props) {
   const colorOptions = [
     { name: "Lila", hex: "#BB51D6" },
     { name: "Grön", hex: "#3CA36B" },
-    { name: "Röd", hex: "#FF603D" },
-    { name: "Rosa", hex: "#E171C9" },
+    { name: "Röd", hex: "#E7593A" },
+    { name: "Rosa", hex: "#E985D3" },
     { name: "Blå", hex: "#87A4EF" },
+    { name: "Gul", hex: "#D7B24F" },
   ];
 
   async function createPost(event) {
