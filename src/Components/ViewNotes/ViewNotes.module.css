@@ -58,6 +58,11 @@
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
+  color: #4a4a4a;
+}
+.faPencil {
+  font-size: 20px;
+  padding-left: 10px;
 }
 .noteUser {
   font-family: "Noto Music", sans-serif;
@@ -75,7 +80,6 @@
   border-radius: 8px;
 }
 .notePopup {
-
   position: fixed;
   top: 0;
   left: 0;
@@ -86,7 +90,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-
 }
 
 .notePopupContent {
