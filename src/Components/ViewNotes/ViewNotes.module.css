@@ -10,7 +10,7 @@
   grid-auto-rows: auto;
   height: calc(100vh - 163px);
   z-index: 2;
-  position: absolute;
+  position: relative;
   top: 153px;
   right: 0;
 }
