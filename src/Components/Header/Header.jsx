@@ -1,8 +1,11 @@
 import * as React from "react";
 import styles from "./Header.module.css";
-import mapIcon from "../../assets/mapicon.png"
-import infoIcon from "../../assets/infoIcon.png"
+import mapIcon from "../../assets/map_icon.svg";
+import infoIcon from "../../assets/Info_icon.svg";
 import { Link } from "react-router-dom";
+import viewNoteStyles from "../ViewNotes/ViewNotes.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Header({ location }) {
     const capitalizeFirstLetter = (str) => {
@@ -12,8 +15,15 @@ function Header({ location }) {
     const [isInfoVisible, setIsInfoVisible] = React.useState(false);
 
     const toggleInfoDiv = () => {
-        setIsInfoVisible((prev) => !prev);
-      };
+        setIsInfoVisible((prev) => {
+            // Toggle the z-index between 4 and 2
+            const overlayElement = document.querySelector(`.${viewNoteStyles.overlay}`);
+            if (overlayElement) {
+                overlayElement.style.zIndex = prev ? '2' : '3';
+            }
+            return !prev;
+        });
+    };
 
     const capitalizedLocation = capitalizeFirstLetter(location);
 
@@ -32,15 +42,15 @@ function Header({ location }) {
                 <h1 className={styles.appName}>POST-IT</h1>
             </div>
             {isInfoVisible && (
-            <div className={styles.infoDiv}>
-                <h2 className={styles.infoDivTitle}>Hur går det till?</h2> <br />
-                <p className={styles.p}>
-                    Klicka på en post-it för att ta del av andras <span className={styles.fatPopupTypo}>upplevelser här på Lindholmen.</span> <br /><br />
-                    <span className={styles.fatPopupTypo}>Du kan själv dela</span> dina upplevelser genom att trycka in dig på "skriv här". <br /><br />
-                    <span className={styles.sjalvklart}>Självklart kan man vara anonym.</span>
-                </p>
-                <button onClick={toggleInfoDiv}>Stäng ner</button>
-            </div>
+                <div className={styles.infoDiv}>
+                    <h2 className={styles.infoDivTitle}>Hur går det till?</h2> <br />
+                    <p className={styles.p}>
+                        Klicka på en post-it för att ta del av andras <span className={styles.fatPopupTypo}>upplevelser här på Lindholmen.</span> <br /><br />
+                        <span className={styles.fatPopupTypo}>Du kan själv dela</span> dina upplevelser genom att trycka in dig på "skriv här". <br /><br />
+                        <span className={styles.sjalvklart}>Självklart kan man vara anonym.</span>
+                    </p>
+                    <button className={styles.infoDivCross} onClick={toggleInfoDiv}><FontAwesomeIcon icon={faXmark} size="2x" /></button>
+                </div>
             )}
         </div>
     );
