@@ -114,7 +114,8 @@
   border-radius: 5px;
 }
 .notePopupContentButtonBlack {
-  background-color: #0d0d0d;
+  color: #0d0d0d;
+  background-color: unset;
   z-index: 9999;
   position: absolute;
   top: 10px;
@@ -123,4 +124,8 @@
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
+}
+.popUpTitleClass {
+  font-size: 32px !important;
+  margin-bottom: 16px;
 }
