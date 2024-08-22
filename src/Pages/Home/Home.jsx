@@ -12,6 +12,14 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 function Home() {
   const [isInfoVisible, setIsInfoVisible] = React.useState(false);
 
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsInfoVisible(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const toggleInfoDiv = () => {
     setIsInfoVisible((prev) => !prev);
   };
@@ -23,10 +31,10 @@ function Home() {
       </button>
       <img src={postitLogga} className={styles.headerText} alt="" />
       <h2 className={styles.headerLindholmen}>Lindholmen</h2>
-
       {/* Conditionally render the Info Div */}
       {isInfoVisible && (
-        <div className={styles.infoDiv}>
+        /* 3 seconds after the website is loaded for the first time i want the div to be set to true and kind of fade in quickly  */
+        <div className={`${styles.infoDiv} ${styles.fadeIn}`}>
           <h2 className={styles.infoDivTitle}>Hur Går det till?</h2><br />
           <p className={styles.popupTypo}>
             Vad är det som kännetecknar historia om inte människorna som skapar den? Ta del av upplevelser och dela dina egna, här på Lindholmen.<br /><br />
