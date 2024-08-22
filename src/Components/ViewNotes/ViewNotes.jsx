@@ -4,11 +4,14 @@ import Note from "../Note/Note.jsx";
 import styles from "./ViewNotes.module.css";
 import Header from "../Header/Header.jsx";
 import AddNote from "../AddNote/addNote.jsx";
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 function ViewNotes(props) {
   const [posts, setPosts] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
-  const [addNote, setAddNote] = useState(null);
+  const [addNote, setAddNote] = useState(false); // default to false
 
   useEffect(() => {
     getPosts();
@@ -35,7 +38,12 @@ function ViewNotes(props) {
   }
 
   function closeAddNote() {
-    setAddNote(null);
+    setAddNote(false);
+  }
+
+  function addNewPost(newPost) {
+    setPosts((prevPosts) => [...prevPosts, newPost]); // Add new post to the list
+    closeAddNote(); // Close the "Add Note" form
   }
 
   return (
@@ -50,8 +58,10 @@ function ViewNotes(props) {
         {props.addNote === "true" && (
           <div onClick={handleAddClick} className={styles.addNoteContainer}>
             <h2 className={styles.noteTitle}>Vad har du varit med om här?</h2>
-            <p className={styles.noteSubText}>Berätta din historia</p>
-            <p className={styles.noteUser}>Anonym</p>
+            <p className={styles.noteSubText}>
+              Skriv här...{" "}
+              <FontAwesomeIcon icon={faPencil} className={styles.faPencil} />
+            </p>
           </div>
         )}
         {posts.map((post) => (
@@ -74,7 +84,10 @@ function ViewNotes(props) {
               >
                 X
               </button>
-              <AddNote location={props.location} />
+              <AddNote
+                location={props.location}
+                addNewPost={addNewPost} // Pass the addNewPost function
+              />
             </div>
           </div>
         )}
@@ -82,7 +95,7 @@ function ViewNotes(props) {
           <div className={styles.notePopup}>
             <div className={styles.notePopupContent}>
               <button
-                className={styles.notePopupContentButton}
+                className={styles.notePopupContentButtonBlack}
                 onClick={closeNote}
               >
                 X
@@ -94,6 +107,7 @@ function ViewNotes(props) {
                 className={styles.popupNote}
                 color={selectedNote.color}
                 age={selectedNote.age}
+                popUpTitleClass={styles.popUpTitleClass}
               />
             </div>
           </div>

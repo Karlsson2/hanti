@@ -7,27 +7,28 @@ function AddNote(props) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
-  const [color, setColor] = useState(""); // New state for color
-  const [age, setAge] = useState(""); // Assuming there's an age field as well
+  const [color, setColor] = useState("");
+  const [age, setAge] = useState("");
+  const [wordCount, setWordCount] = useState(0);
 
   const locationArray = ["lindholmspiren", "fontänen", "bädden", "hållplatsen"];
   const currentLocation = locationArray.find((place) =>
     locationName.includes(place)
   );
 
-  // Array of colors with hex values
   const colorOptions = [
     { name: "Lila", hex: "#BB51D6" },
     { name: "Grön", hex: "#3CA36B" },
-    { name: "Röd", hex: "#FF603D" },
-    { name: "Rosa", hex: "#E171C9" },
+    { name: "Röd", hex: "#E7593A" },
+    { name: "Rosa", hex: "#E985D3" },
     { name: "Blå", hex: "#87A4EF" },
+    { name: "Gul", hex: "#D7B24F" },
   ];
 
   async function createPost(event) {
     event.preventDefault();
 
-    const data = {
+    const newPost = {
       title: title,
       content: content,
       author: author || "Anonymous",
@@ -36,32 +37,34 @@ function AddNote(props) {
       age: age,
     };
 
-    const { error } = await supabase.from("posts").insert([data]);
+    const { data, error } = await supabase
+      .from("posts")
+      .upsert([newPost])
+      .select();
+
+    console.log(data);
+    console.log(error);
 
     if (error) {
       console.error("Error creating post:", error);
+    } else {
+      props.addNewPost(data[0]);
     }
   }
 
-  function handleTitleChange(event) {
-    setTitle(event.target.value);
-  }
+  const handleContentChange = (e) => {
+    const newContent = e.target.value;
 
-  function handleContentChange(event) {
-    setContent(event.target.value);
-  }
+    // Split content by spaces and count words
+    const words = newContent.trim().split(/\s+/);
+    const wordCount = words.filter((word) => word !== "").length; // Filter out empty strings
 
-  function handleAuthorChange(event) {
-    setAuthor(event.target.value);
-  }
-
-  function handleColorChange(event) {
-    setColor(event.target.value);
-  }
-
-  function handleAgeChange(event) {
-    setAge(event.target.value);
-  }
+    // Ensure the word count does not exceed 500
+    if (wordCount <= 500) {
+      setContent(newContent);
+      setWordCount(wordCount);
+    }
+  };
 
   return (
     <form onSubmit={createPost} className={styles.addNoteForm}>
@@ -69,32 +72,37 @@ function AddNote(props) {
         type="text"
         placeholder="Din titel här..."
         value={title}
-        onChange={handleTitleChange}
+        onChange={(e) => setTitle(e.target.value)}
         className={styles.titleInput}
+        required
       />
+      <div className={styles.solidLine}></div>
       <textarea
-        maxlength="500"
         placeholder="Jag var med om... nått"
         value={content}
         onChange={handleContentChange}
         className={styles.textInput}
+        required
       />
+      <div className={styles.wordCount}>{wordCount}/500 ord</div>
+      <div className={styles.solidLine}></div>
+
       <input
         type="text"
         placeholder="Ålder"
         value={age}
-        onChange={handleAgeChange}
+        onChange={(e) => setAge(e.target.value)}
         className={styles.ageInput}
+        required
       />
-
       <input
         type="text"
         placeholder="Skriv ditt namn eller var anonym"
         value={author}
-        onChange={handleAuthorChange}
+        onChange={(e) => setAuthor(e.target.value)}
         className={styles.nameInput}
       />
-      <select value={color} onChange={handleColorChange}>
+      <select value={color} onChange={(e) => setColor(e.target.value)} required>
         <option value="">Välj Postit Färg</option>
         {colorOptions.map((colorOption, index) => (
           <option key={index} value={colorOption.hex}>
@@ -102,7 +110,9 @@ function AddNote(props) {
           </option>
         ))}
       </select>
-      <button type="submit">Add note</button>
+      <button className={styles.submitButton} type="submit">
+        Add note
+      </button>
     </form>
   );
 }

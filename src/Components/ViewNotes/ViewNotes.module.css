@@ -58,6 +58,11 @@
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
+  color: #4a4a4a;
+}
+.faPencil {
+  font-size: 20px;
+  padding-left: 10px;
 }
 .noteUser {
   font-family: "Noto Music", sans-serif;
@@ -73,9 +78,9 @@
   cursor: auto !important;
   padding: 20px;
   border-radius: 8px;
+  color: #0d0d0d;
 }
 .notePopup {
-
   position: fixed;
   top: 0;
   left: 0;
@@ -86,7 +91,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-
 }
 
 .notePopupContent {
@@ -94,6 +98,8 @@
   overflow-y: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
+  max-height: 60%;
+  border-radius: 10px;
 }
 
 .notePopupContentButton {
@@ -106,4 +112,20 @@
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
+}
+.notePopupContentButtonBlack {
+  color: #0d0d0d;
+  background-color: unset;
+  z-index: 9999;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.popUpTitleClass {
+  font-size: 32px !important;
+  margin-bottom: 16px;
 }
