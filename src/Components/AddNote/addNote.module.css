@@ -12,14 +12,20 @@
 }
 .titleInput {
   font-size: 32px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
 }
 .textInput {
   font-size: 16px;
+  font-family: "Noto Music", sans-serif;
+  font-weight: 400;
 }
 .ageInput,
 .nameInput {
   font-size: 12px;
   opacity: 0.55;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
 }
 .wordCount {
   text-align: right;
