@@ -32,6 +32,7 @@
   font-weight: 800;
   font-style: normal;
   font-size: 24px;
+  overflow-x: clip;
 }
 .noteSubText {
   font-family: "Noto Music", sans-serif;

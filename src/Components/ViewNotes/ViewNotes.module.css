@@ -27,7 +27,7 @@
 }
 .overlay {
   height: 100%;
-  background: RGBA(78, 78, 78, 0.7);
+  background: #232323bf;
   opacity: 0.9;
   width: 100%;
   z-index: 2;
