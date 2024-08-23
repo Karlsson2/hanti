@@ -13,11 +13,19 @@ function Home() {
   const [isInfoVisible, setIsInfoVisible] = React.useState(false);
 
   React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsInfoVisible(true);
-    }, 3000);
+    // Check if info div has been shown before
+    const hasSeenInfo = localStorage.getItem("hasSeenInfo");
 
-    return () => clearTimeout(timer);
+    if (!hasSeenInfo) {
+      const timer = setTimeout(() => {
+        setIsInfoVisible(true);
+        // Set the flag in localStorage
+        localStorage.setItem("hasSeenInfo", "true");
+      }, 3000);
+
+      // Clear the timer if the component unmounts
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const toggleInfoDiv = () => {
@@ -33,7 +41,6 @@ function Home() {
       <h2 className={styles.headerLindholmen}>Lindholmen</h2>
       {/* Conditionally render the Info Div */}
       {isInfoVisible && (
-        /* 3 seconds after the website is loaded for the first time i want the div to be set to true and kind of fade in quickly  */
         <div className={`${styles.infoDiv} ${styles.fadeIn}`}>
           <h2 className={styles.infoDivTitle}>Hur Går det till?</h2><br />
           <p className={styles.popupTypo}>
