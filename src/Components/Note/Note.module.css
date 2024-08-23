@@ -20,7 +20,7 @@
 
 .note:nth-child(even) {
   transform: rotate(5deg);
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .note:nth-child(odd) {
@@ -32,7 +32,13 @@
   font-weight: 800;
   font-style: normal;
   font-size: 24px;
-  overflow-x: clip;
+  overflow-wrap: break-word; /* Ensures long words are broken to fit within the container */
+  word-break: break-word;    /* Breaks long words at the edge of the container */
+  max-height: 100px;         /* Set a maximum height to ensure the text doesn't exceed the note's height */
+  overflow: hidden;          /* Hides any text that exceeds the maximum height */
+  display: -webkit-box;      /* Required for text truncation after a certain number of lines */
+  -webkit-line-clamp: 3;     /* Limits the title to 3 lines */
+  -webkit-box-orient: vertical; /* Required for line clamping */
 }
 .noteSubText {
   font-family: "Noto Music", sans-serif;

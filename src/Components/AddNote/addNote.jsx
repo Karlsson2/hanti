@@ -31,7 +31,7 @@ function AddNote(props) {
     const newPost = {
       title: title,
       content: content,
-      author: author || "Anonymous",
+      author: author || "Anonym",
       location: currentLocation,
       color: color,
       age: age,
