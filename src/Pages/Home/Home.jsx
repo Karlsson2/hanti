@@ -58,9 +58,11 @@ function Home() {
       <Map
         mapboxAccessToken={import.meta.env.VITE_MAPBOX_KEY}
         initialViewState={{
-          longitude: 11.939,
-          latitude: 57.70594,
-          zoom: 16,
+          longitude: 11.9375,
+          latitude: 57.706,
+          zoom: 15,
+          pitch: 65,  // Set the pitch to create a 3D effect
+          bearing: -50.6  // Adjust bearing to tilt the view
         }}
         style={{ width: "100%", height: "100%" }}
         mapStyle="mapbox://styles/fannykarlsson/cm0250q19009u01phh6a1gchj"
